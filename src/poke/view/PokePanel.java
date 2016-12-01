@@ -50,7 +50,8 @@ public class PokePanel extends JPanel
 		this.speedField = new JTextField(5);
 		this.advancedArea = new JTextArea(10,25);
 		this.nameField = new JTextField(20);
-		this.
+		this.numberField = new JTextField(5);
+		
 		
 		
 		
@@ -66,7 +67,24 @@ public class PokePanel extends JPanel
 	{
 		this.setLayout(baseLayout);
 		this.setPreferredSize(new Dimension(900, 500));
-		
+		numberField.setEditable(false);
+		nameField.setEditable(false);
+		this.add(updateButton);
+		this.add(pokedexSelector);
+		this.add(pokemonLabel);
+		this.add(pokemonLabel);
+		this.add(healthLabel);
+		this.add(combatLabel);
+		this.add(speedLabel);
+		this.add(nameLabel);
+		this.add(numberLabel);
+		this.add(advancedLabel);
+		this.add(healthField);
+		this.add(combatField);
+		this.add(speedField);
+		this.add(advancedArea);
+		this.add(nameField);
+		this.add(numberField);
 	}
 	
 	private void setupLayout()
