@@ -35,14 +35,12 @@ public class PokePanel extends JPanel
 		this.updateButton = new JButton("update");
 		this.pokedexSelector = new JComboBox(new String [] {"GeoDude", "Bulbasaur", "magcargo", "Blastoise", "Charizard"});
 		this.pokemonLabel = new JLabel("The current pokemon", pokemonIcon, SwingConstants.CENTER);
-		
 		this.healthLabel = new JLabel("HP:");
 		this.combatLabel = new JLabel("CP:");
 		this.speedLabel = new JLabel("Speed:");
 		this.nameLabel = new JLabel("My Pokemons name:");
 		this.numberLabel = new JLabel("Pokemon Number:");
 		this.advancedLabel = new JLabel("Advanced Information:");
-		
 		this.healthField = new JTextField(5);
 		this.combatField = new JTextField(5);
 		this.speedField = new JTextField(5);
