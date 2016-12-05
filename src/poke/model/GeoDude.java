@@ -4,12 +4,12 @@ public class GeoDude extends Pokemon implements Rock
 {
 	public GeoDude()
 	{
-		super("GeoDude", 25);
+		super("GeoDude", 74);
 	}
 	
 	public GeoDude(String name)
 	{
-		super(name, 25);
+		super(name, 74);
 	}
 	
 	public int rockThrow()

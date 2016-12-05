@@ -124,7 +124,12 @@ public class PokePanel extends JPanel
 	private void setupListeners()
 	{
 		
+		
 	}
 	
+	private void changeColorBasedOnData(String data)
+	{
+		
+	}
 
 }
