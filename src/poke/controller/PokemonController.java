@@ -32,4 +32,31 @@ public class PokemonController
 		pokedex.add(new Bulbasaur("Bulbasuar"));
 		pokedex.add(new Charizard("Charizard"));
 	}
+
+
+	public ArrayList<Pokemon> getPokedex() 
+	{
+		
+		return pokedex;
+	}
+
+
+	public void setPokedex(ArrayList<Pokemon> pokedex) 
+	{
+		this.pokedex = pokedex;
+	}
+
+
+	public PokemonFrame getBaseFrame() 
+	{
+		return baseFrame;
+	}
+
+
+	public void setBaseFrame(PokemonFrame baseFrame) 
+	{
+		this.baseFrame = baseFrame;
+	}
+	
+	
 }
