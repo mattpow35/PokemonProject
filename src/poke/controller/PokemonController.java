@@ -28,5 +28,8 @@ public class PokemonController
 	{
 		pokedex.add(new GeoDude("GeoDude"));
 		pokedex.add(new Blastoise("Blastoise"));
+		pokedex.add(new Magcargo("Magcargo"));
+		pokedex.add(new Bulbasaur("Bulbasuar"));
+		pokedex.add(new Charizard("Charizard"));
 	}
 }
