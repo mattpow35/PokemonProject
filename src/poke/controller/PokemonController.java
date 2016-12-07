@@ -31,6 +31,7 @@ public class PokemonController
 		pokedex.add(new Magcargo("Magcargo"));
 		pokedex.add(new Bulbasaur("Bulbasuar"));
 		pokedex.add(new Charizard("Charizard"));
+		pokedex.add(new Blastoise("Epic water cannon turtle"));
 	}
 	
 	public void updateSelected(int index, String name, int combat, int health, double speed)
