@@ -32,6 +32,15 @@ public class PokemonController
 		pokedex.add(new Bulbasaur("Bulbasuar"));
 		pokedex.add(new Charizard("Charizard"));
 	}
+	
+	public void updateSelected(int index, String name, int combat, int health, double speed)
+	{
+		Pokemon current = pokedex.get(index);
+		current.setName(name);
+		current.setAttackPoints(combat);
+		current.setSpeed(speed);
+		current.setHealthPoints(health);
+	}
 
 
 	public ArrayList<Pokemon> getPokedex() 
