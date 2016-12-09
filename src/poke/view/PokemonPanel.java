@@ -137,6 +137,25 @@ public class PokemonPanel extends JPanel
 	
 	private void setupListeners()
 	{
+		pokedexSelector.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				int selected = pokedexSelector.getSelectedIndex();
+				nameLabel.setText(baseController.getPokedex().get(selected).getName());
+				numberLabel.setText(baseController.getPokedex().get(selected).getNumber() + "");
+				combatLabel.setText(baseController.getPokedex().get(selected).getAttackPoints() + "");
+				speedLabel.setText(baseController.getPokedex().get(selected).getSpeed() + "");
+				healthField.setText(baseController.getPokedex().get(selected).getPokemonInformation() 
+						+ "\n" + baseController.getPokedex().get(selected).getPokemonTypes());
+				changeColorBasedOnData(baseController.getPokedex().get(selected).getPokemonTypes());
+			}
+		});
+		
+		
+		
+		
+		
 		this.addMouseListener(new MouseListener()
 		{
 			public void mouseEntered(MouseEvent entered)
@@ -198,11 +217,46 @@ public class PokemonPanel extends JPanel
 	
 	private void changeColorBasedOnData(String data)
 	{
+		if (data.contains("Grass"))
+		{
+			this.setBackground(Color.GREEN);
+		}
+		else if (data.contains("Fire"))
+		{
+			this.setBackground(Color.RED);
+		}
+		else if (data.contains("Rock"))
+		{
+			this.setBackground(Color.GRAY);
+		}
+		else if (data.contains("Water"))
+		{
+			this.setBackground(Color.BLUE);
+		}
 		
+		repaint();
 	}
 	
 	private void changImageDisplay(String name)
 	{
+		String path = "/pole/view/iamges";
+		String defaultName = "blastoise";
+		String extension = ".jpg";
+		
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
+			
+		}
+		catch (NullPointerException missingFile)
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+		}
+		pokemonLabel.setIcon(pokemonIcon);
+		repaint();
+		
+		
+		
 		
 	}
 }
