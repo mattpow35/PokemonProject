@@ -26,7 +26,7 @@ public class PokemonController
 	
 	private void buildPokedex()
 	{
-		pokedex.add(new GeoDude("GeoDude"));
+		pokedex.add(new GeoDude("Geodude"));
 		pokedex.add(new Blastoise("Blastoise"));
 		pokedex.add(new Magcargo("Magcargo"));
 		pokedex.add(new Bulbasaur("Bulbasaur"));
