@@ -143,6 +143,12 @@ public class PokemonPanel extends JPanel
 			{
 				if(isValidName(nameField.getText()) && isValidInteger(combatField.getText()) && isValidInteger(healthField.getText()) && isValidDouble(speedField.getText()))
 				{
+					int selected = pokedexSelector.getSelectedIndex();
+					baseController.getPokedex().get(selected).setName(nameField.getText());
+					baseController.getPokedex().get(selected).setHealthPoints(Integer.parseInt(healthField.getText()));
+					baseController.getPokedex().get(selected).setAttackPoints(Integer.parseInt(combatField.getText()));
+					baseController.getPokedex().get(selected).setSpeed(Double.parseDouble(speedField.getText()));
+					
 					
 				}
 			}	
@@ -266,4 +272,80 @@ public class PokemonPanel extends JPanel
 		}
 		return isValid;
 	}
+	
+	private boolean isValidInteger(String input)
+	{
+		boolean isValid = false;
+		
+		if(input != null)
+		{
+			try
+			{
+				Integer.parseInt(input);
+			
+				isValid = true;
+			}
+			catch (NumberFormatException ex)
+			{
+				JOptionPane.showMessageDialog(this, "You need to enter a valid integer.");
+			}
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(this, "You need to enter a valid integer.");
+		}
+		return isValid;
+	}
+	
+	private boolean isValidDouble(String input)
+	{
+		boolean isValid = false;
+		
+		if (input != null)
+		{
+			try
+			{
+				Double.parseDouble(input);
+			
+				isValid = true;
+			}
+			catch (NumberFormatException ex)
+			{
+				JOptionPane.showMessageDialog(this, "You need to enter a valid number for speed \n (enter a double value).");
+			
+			}
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(this, "You need to enter a valid number for speed \n (enter a double value).");
+		}
+		return isValid;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
