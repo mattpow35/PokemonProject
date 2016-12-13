@@ -32,10 +32,10 @@ public class PokemonPanel extends JPanel
 		super();
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
-		this.pokemonIcon = new ImageIcon(getClass().getResource("/poke/view/images/pokeBall.png"));
+		this.pokemonIcon = new ImageIcon(getClass().getResource("/poke/view/images/pokeBall.jpg"));
 		this.updateButton = new JButton("update");
-		this.pokedexSelector = new JComboBox(new String [] {"GeoDude", "Bulbasaur", "magcargo", "Blastoise", "Charizard"});
-		this.pokemonLabel = new JLabel("The current pokemon", new ImageIcon(PokemonPanel.class.getResource("/poke/view/images/pokeBall.png")), SwingConstants.CENTER);
+		this.pokedexSelector = new JComboBox(baseController.getPokedexNames());
+		this.pokemonLabel = new JLabel("The current pokemon", new ImageIcon(PokemonPanel.class.getResource("/poke/view/images/pokeBall.jpg")), SwingConstants.CENTER);
 		pokemonLabel.setVerticalAlignment(SwingConstants.BOTTOM);
 		this.healthLabel = new JLabel("HP:");
 		this.combatLabel = new JLabel("CP:");
@@ -142,14 +142,14 @@ public class PokemonPanel extends JPanel
 			public void actionPerformed(ActionEvent selection)
 			{
 				int selected = pokedexSelector.getSelectedIndex();
-				nameLabel.setText(baseController.getPokedex().get(selected).getName());
-				numberLabel.setText(baseController.getPokedex().get(selected).getNumber() + "");
-				combatLabel.setText(baseController.getPokedex().get(selected).getAttackPoints() + "");
-				speedLabel.setText(baseController.getPokedex().get(selected).getSpeed() + "");
+				nameField.setText(baseController.getPokedex().get(selected).getName());
+				numberField.setText(baseController.getPokedex().get(selected).getNumber() + "");
+				combatField.setText(baseController.getPokedex().get(selected).getAttackPoints() + "");
+				speedField.setText(baseController.getPokedex().get(selected).getSpeed() + "");
 				healthField.setText(baseController.getPokedex().get(selected).getPokemonInformation() 
 						+ "\n" + baseController.getPokedex().get(selected).getPokemonTypes());
 				changeColorBasedOnData(baseController.getPokedex().get(selected).getPokemonTypes());
-				changeImageDisplay(baseController.getPokedex().get(selected).getPokemonInformation());
+				changeImageDisplay(baseController.getPokedex().get(selected).getClass().getSimpleName());
 			}
 		});
 		
@@ -240,7 +240,7 @@ public class PokemonPanel extends JPanel
 	
 	private void changeImageDisplay(String name)
 	{
-		String path = "/src/poke/view/images";
+		String path = "/poke/view/images/";
 		String defaultName = "Blastoise";
 		String extension = ".jpg";
 

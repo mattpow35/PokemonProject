@@ -68,5 +68,15 @@ public class PokemonController
 		this.baseFrame = baseFrame;
 	}
 	
-	
+	public String[] getPokedexNames()
+	{
+		String[] names = new String [pokedex.size()];
+		
+		for (int index = 0; index < pokedex.size(); index ++)
+		{
+			names[index] = pokedex.get(index).getName();
+		}
+		
+		return names;
+	}
 }
