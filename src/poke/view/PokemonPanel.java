@@ -149,7 +149,7 @@ public class PokemonPanel extends JPanel
 				healthField.setText(baseController.getPokedex().get(selected).getPokemonInformation() 
 						+ "\n" + baseController.getPokedex().get(selected).getPokemonTypes());
 				changeColorBasedOnData(baseController.getPokedex().get(selected).getPokemonTypes());
-//				changeImageDisplay(baseController.getPokedex().get(selected).getPokemonInformation());
+				changeImageDisplay(baseController.getPokedex().get(selected).getPokemonInformation());
 			}
 		});
 		
@@ -238,26 +238,27 @@ public class PokemonPanel extends JPanel
 		repaint();
 	}
 	
-////	private void changeImageDisplay(String name)
-////	{
-////		String path = "/poke/view/iamges";
-////		String defaultName = "blastoise";
-////		String extension = ".jpg";
-////		
-////		try
-////		{
-////			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
-////			
-////		}
-////		catch (NullPointerException missingFile)
-////		{
-////			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
-////		}
-////		pokemonLabel.setIcon(pokemonIcon);
-////		repaint();
-////		
-//		
-//		
-//		
-//	}
+	private void changeImageDisplay(String name)
+	{
+		String path = "/src/poke/view/images";
+		String defaultName = "Blastoise";
+		String extension = ".jpg";
+
+		
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
+			
+		}
+		catch (NullPointerException missingFile)
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+		}
+		pokemonLabel.setIcon(pokemonIcon);
+		repaint();
+		
+		
+		
+		
+	}
 }
