@@ -137,7 +137,16 @@ public class PokemonPanel extends JPanel
 			}
 		});
 		
-		
+		updateButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				if(isValidName(nameField.getText()) && isValidInteger(combatField.getText()) && isValidInteger(healthField.getText()) && isValidDouble(speedField.getText()))
+				{
+					
+				}
+			}	
+		});
 		
 		
 		
@@ -242,9 +251,19 @@ public class PokemonPanel extends JPanel
 		}
 		pokemonLabel.setIcon(pokemonIcon);
 		repaint();
-		
-		
-		
-		
+	}
+	
+	private boolean isValidName(String name)
+	{
+		boolean isValid = false;
+		if(name != null && name.trim().length() > 2)
+		{
+			isValid = true;
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(this, "Pokemon need a name with a valid length. Enter a correct name.");
+		}
+		return isValid;
 	}
 }
