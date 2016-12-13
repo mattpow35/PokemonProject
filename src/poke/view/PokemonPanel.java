@@ -137,7 +137,22 @@ public class PokemonPanel extends JPanel
 			}
 		});
 		
-		
+		updateButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				if(isValidName(nameField.getText()) && isValidInteger(combatField.getText()) && isValidInteger(healthField.getText()) && isValidDouble(speedField.getText()))
+				{
+					int selected = pokedexSelector.getSelectedIndex();
+					baseController.getPokedex().get(selected).setName(nameField.getText());
+					baseController.getPokedex().get(selected).setHealthPoints(Integer.parseInt(healthField.getText()));
+					baseController.getPokedex().get(selected).setAttackPoints(Integer.parseInt(combatField.getText()));
+					baseController.getPokedex().get(selected).setSpeed(Double.parseDouble(speedField.getText()));
+					
+					
+				}
+			}	
+		});
 		
 		
 		
@@ -242,9 +257,95 @@ public class PokemonPanel extends JPanel
 		}
 		pokemonLabel.setIcon(pokemonIcon);
 		repaint();
-		
-		
-		
-		
 	}
+	
+	private boolean isValidName(String name)
+	{
+		boolean isValid = false;
+		if(name != null && name.trim().length() > 2)
+		{
+			isValid = true;
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(this, "Pokemon need a name with a valid length. Enter a correct name.");
+		}
+		return isValid;
+	}
+	
+	private boolean isValidInteger(String input)
+	{
+		boolean isValid = false;
+		
+		if(input != null)
+		{
+			try
+			{
+				Integer.parseInt(input);
+			
+				isValid = true;
+			}
+			catch (NumberFormatException ex)
+			{
+				JOptionPane.showMessageDialog(this, "You need to enter a valid integer.");
+			}
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(this, "You need to enter a valid integer.");
+		}
+		return isValid;
+	}
+	
+	private boolean isValidDouble(String input)
+	{
+		boolean isValid = false;
+		
+		if (input != null)
+		{
+			try
+			{
+				Double.parseDouble(input);
+			
+				isValid = true;
+			}
+			catch (NumberFormatException ex)
+			{
+				JOptionPane.showMessageDialog(this, "You need to enter a valid number for speed \n (enter a double value).");
+			
+			}
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(this, "You need to enter a valid number for speed \n (enter a double value).");
+		}
+		return isValid;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
